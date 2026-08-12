@@ -1,0 +1,16 @@
+sky:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: sky_take_out
+    username: root
+    password: root  #你的密码
+
+  alioss:
+    endpoint: 你的endpoint
+    access-key-id: 你的AccessID
+    access-key-secret: 你的Access KEY Secret
+    bucket-name: 你的bucket name
+  redis:
+    host: localhost
