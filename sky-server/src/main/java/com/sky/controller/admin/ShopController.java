@@ -40,6 +40,12 @@ public class ShopController {
     public Result<Integer> getStatus(){
         Integer status = (Integer) redisTemplate.opsForValue().get(KEY);
         log.info("获取到店铺的营业状态为：{}",status == 1 ? "营业中" : "打烊中");
+        if (status == null) {
+            // 如果 Redis 中没有值，默认设置为 0（打烊中）
+            status = 0;
+            // 可选：写入 Redis 以便后续快速获取
+            redisTemplate.opsForValue().set(KEY, status);
+        }
         return Result.success(status);
     }
 }
